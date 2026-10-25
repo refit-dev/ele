@@ -25,7 +25,7 @@ export async function checkoutAction(credits: number) {
 
     return stripe.checkout.sessions.create({
         mode: "payment",
-        payment_method_types: ["card", "us_bank_account"],
+        allowed_payment_method_types: ["card", "us_bank_account"],
         metadata: {
             email: session.user.email,
             credits: credits

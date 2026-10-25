@@ -21,7 +21,7 @@ export async function checkoutSubscriptionAction(plan: number, userId: string) {
   }
   return stripe.checkout.sessions.create({
     mode: "subscription",
-    payment_method_types: ["card", "us_bank_account"],
+    allowed_payment_method_types: ["card", "us_bank_account"],
     metadata: {
       userId: userId,
       email: session.user.email,
